@@ -38,8 +38,7 @@ enumerate_collection <- function(site_dir, site_config, collection) {
   }
 
   # sort the articles in reverse-chronological order
-  indexes <- order(sapply(articles, function(x) x$metadata$date), decreasing = TRUE)
-  articles <- articles[indexes]
+  articles <- articles[order_dates(articles)]
 
   # return collection
   list(

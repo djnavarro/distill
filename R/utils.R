@@ -71,6 +71,11 @@ parse_date <- function(date) {
   date
 }
 
+order_dates <- function(articles) {
+  article_dates <- sapply(articles, function(x) x$metadata$date)
+  order(article_dates, decreasing = TRUE)
+}
+
 safe_timezone <- function() {
   tz <- Sys.timezone()
   ifelse(is.na(tz), "UTC", tz)
